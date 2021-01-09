@@ -1,0 +1,24 @@
+<app-header></app-header>
+
+<br>
+<div class="floatRight">
+
+
+<mat-form-field>
+  <mat-label>Select Type</mat-label>
+  <mat-select [(ngModel)]="selectedOption"  (selectionChange)="movieType($event.value)">
+      <mat-option   value="top_rated">
+        Top Rated
+      </mat-option>
+      <mat-option  value="up_comming">
+        Up Coming
+      </mat-option>
+  </mat-select>
+</mat-form-field>
+</div>
+
+<app-movies-top-rated *ngIf="selectedOption == 'top_rated'"></app-movies-top-rated>
+
+<app-movies-up-coming *ngIf="selectedOption == 'up_comming'"></app-movies-up-coming>
+
+

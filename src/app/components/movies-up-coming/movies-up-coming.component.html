@@ -1,0 +1,30 @@
+<br>
+<h1 class="text_center">Movies Up Comming</h1>
+<mat-paginator [length]="length"
+[pageSize]="pageSize"
+
+(page)="onPaginateChange($event)">
+</mat-paginator>
+
+<div class="content" fxLayout="row wrap"  fxLayoutGap="16px grid">
+
+  <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%"  *ngFor="let movie of upComeMovies">
+    <mat-card class="mat-elevation-z4">
+      <mat-card-header>
+        <mat-card-title>{{movie.title}}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image height="200" [src]="imageHost+movie.poster_path" />
+      <mat-card-content>
+        <p>{{ movie.overview  | slice:0:150 }} {{movie.overview > 90 ? '...' : ''}} </p>
+        <p>Language : {{movie.original_language}}</p> 
+        <p>Release Date : {{movie.release_date}}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button  color="primary">Book</button>
+      </mat-card-actions>
+    </mat-card>
+
+  </div>
+
+
+</div>
